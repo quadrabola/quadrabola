@@ -1,40 +1,38 @@
 source 'https://rubygems.org'
 
+gem 'rails', '4.1.4'    # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'pg'                # Use postgresql as the database for Active Record
+gem 'jquery-rails'      # Use jquery as the JavaScript library
+gem 'turbolinks'        # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'rabl'              # Trabalhando com JSON
+gem 'oj'                # Trabalhando com JSON
+gem 'json'              # Trabalhando com JSON
+gem 'devise'            # Gema para controle do login
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
-# Use postgresql as the database for Active Record
-gem 'pg'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.3'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+group :development do
+  gem 'annotate'          # Comentários nos models
+  gem 'better_errors'     # Melhor output de erros no browser
+  gem 'binding_of_caller' # Melhor output de erros no browser
+  gem 'spring'            # Comandos mais rápidos
+  gem 'rb-fsevent' if `uname` =~ /Darwin/ # Para MAC OS/X
+  gem 'pry'
+  gem 'rails-erd'         # Para geração dinâmica do MER
+end
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+group :test do
+  gem 'rspec-rails'           # Suite para testes
+  gem 'factory_girl_rails'    # Criação de massa de teste
+  gem 'spring-commands-rspec' # Integração Spring com RSpec
+  gem 'guard'                 # Testes executados durante a alteração dos arquivos
+  gem 'guard-rspec'           # Testes executados durante a alteração dos arquivos (plugin para RSpec)
+  gem 'guard-spring'          # Testes executados durante a alteração dos arquivos com o Spring
+  gem 'database_cleaner'      # Limpa a base de dados a cada execução dos testes
+end
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', '~> 4.0.3'    # Use SCSS for stylesheets
+  gem 'uglifier', '>= 1.3.0'      # Use Uglifier as compressor for JavaScript assets
+  gem 'coffee-rails', '~> 4.0.0'  # Use CoffeeScript for .js.coffee assets and views
+end
